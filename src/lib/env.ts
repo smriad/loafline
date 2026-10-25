@@ -12,7 +12,8 @@ const schema = z.object({
   TINKER_BASE_URL: z
     .string()
     .default("https://tinker.thinkingmachines.dev/services/tinker-prod/oai/api/v1"),
-  TINKER_MODEL: z.string().default("thinkingmachines/Inkling"),
+  TINKER_MODEL: z.string().optional(),
+  TINKER_BRIEF_MODEL: z.string().optional(),
   PRIORLABS_API_KEY: z.string().optional(),
   TABPFN_FITTED_TRAIN_SET_ID: z.string().optional(),
   MONGODB_URI: z.string().optional(),
@@ -31,6 +32,15 @@ export type AppEnv = z.infer<typeof schema>;
 let cached: AppEnv | null = null;
 
 export function getEnv(): AppEnv {
-  if (!cached) cached = schema.parse(process.env);
+  if (!cached) {
+    const parsed = schema.parse(process.env);
+    cached = {
+      ...parsed,
+      TINKER_MODEL:
+        parsed.TINKER_MODEL ??
+        parsed.TINKER_BRIEF_MODEL ??
+        "thinkingmachines/Inkling",
+    };
+  }
   return cached;
 }

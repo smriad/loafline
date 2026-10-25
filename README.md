@@ -27,10 +27,42 @@ Set `DEMO_MODE=true` to try the UI without APIs.
 
 ## Render deploy
 
-1. New **Web Service** → connect repo.
-2. Use `render.yaml` or set build `npm install && npm run build`, start `npm start`.
-3. Add environment variables from `.env.example`.
-4. Health check: `/api/health`.
+Repo: [github.com/smriad/loafline](https://github.com/smriad/loafline)
+
+### Option A — Blueprint (recommended)
+
+1. Go to [dashboard.render.com](https://dashboard.render.com) → **New** → **Blueprint**.
+2. Connect GitHub and select **`smriad/loafline`**.
+3. Render reads `render.yaml` and creates the **loafline** web service.
+4. When prompted, set **secret** env vars (same values as your `.env.local`, never commit them):
+   - `OLLAMA_API_KEY`, `OLLAMA_BASE_URL`
+   - `PRIORLABS_API_KEY`
+   - `MONGODB_URI` (use `MONGODB_DB=loafline`)
+   - `TIGER_DATABASE_URL`
+   - `ELEVENLABS_API_KEY`, `ELEVENLABS_VOICE_ID`
+   - `SENTRY_DSN`, `SERPAPI_API_KEY`
+   - `BACKBOARD_API_KEY`, `BACKBOARD_ASSISTANT_ID`
+   - `TINKER_API_KEY`, and either `TINKER_MODEL` or `TINKER_BRIEF_MODEL`
+5. Set `DEMO_MODE=false` for the live demo.
+6. Deploy. Health check path: **`/api/health`**.
+
+### Option B — Manual web service
+
+| Setting | Value |
+|--------|--------|
+| Runtime | Node |
+| Build | `npm install && npm run build` |
+| Start | `npm start` |
+| Health check | `/api/health` |
+| Node version | 22 |
+
+Add all variables from `.env.example` under **Environment**.
+
+### After deploy
+
+- Open `https://<your-service>.onrender.com`
+- Run a **Loaf check** and confirm **Partner stack** shows partners as live.
+- Paste the URL into your DEV submission (Best Use of **Render**).
 
 ## Prize categories (list in your DEV post)
 
