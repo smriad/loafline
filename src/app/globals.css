@@ -1,0 +1,264 @@
+:root {
+  --bg: #1a2420;
+  --card: #243029;
+  --ink: #e8f0eb;
+  --muted: #9bb5a8;
+  --accent: #c4e063;
+  --warn: #f5b726;
+  --hot: #e97b77;
+  --font: "Segoe UI", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font);
+  background: radial-gradient(ellipse at top, #2a3d34 0%, var(--bg) 55%);
+  color: var(--ink);
+}
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+h1 {
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.35rem;
+}
+
+.sub {
+  color: var(--muted);
+  margin: 0 0 1.75rem;
+  line-height: 1.5;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid #354a40;
+  border-radius: 14px;
+  padding: 1.1rem 1.25rem;
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+}
+
+textarea {
+  width: 100%;
+  min-height: 110px;
+  border-radius: 10px;
+  border: 1px solid #3d5248;
+  background: #1c2822;
+  color: var(--ink);
+  padding: 0.75rem;
+  font: inherit;
+  resize: vertical;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.85rem;
+}
+
+button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.55rem 1.1rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--accent);
+  color: #1a2420;
+}
+
+button.secondary {
+  background: #3d5248;
+  color: var(--ink);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.verdict.loaf {
+  border-left: 4px solid var(--accent);
+}
+.verdict.this_week {
+  border-left: 4px solid var(--warn);
+}
+.verdict.today {
+  border-left: 4px solid var(--hot);
+}
+
+.pill {
+  display: inline-block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  background: #2f4238;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+.partners {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 0.75rem;
+}
+
+.error {
+  color: var(--hot);
+  font-size: 0.9rem;
+}
+
+.top-nav {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-nav .brand {
+  font-weight: 800;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.top-nav nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.top-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.top-nav a:hover {
+  color: var(--ink);
+}
+
+.section-title {
+  font-size: 1rem;
+  margin: 0 0 0.75rem;
+}
+
+.partner-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.5rem;
+}
+
+.partner-grid li {
+  border-radius: 8px;
+  padding: 0.45rem 0.55rem;
+  font-size: 0.72rem;
+  border: 1px solid #3d5248;
+}
+
+.partner-grid li.on {
+  background: #2a3d32;
+}
+
+.partner-grid li.off {
+  opacity: 0.45;
+}
+
+.partner-grid strong {
+  display: block;
+  font-size: 0.78rem;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.chip {
+  padding: 0.25rem 0.55rem;
+  font-size: 0.72rem;
+  border-radius: 999px;
+  background: #2f4238;
+  color: var(--muted);
+}
+
+.row-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+button.linkish {
+  background: transparent;
+  color: var(--accent);
+  padding: 0;
+  font-size: 0.78rem;
+}
+
+.payoff {
+  color: var(--accent);
+  margin: 0.25rem 0 0.75rem;
+}
+
+.muted-sm {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.stats-row strong {
+  display: block;
+  font-size: 1.4rem;
+}
+
+.stats-row span {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.digest {
+  line-height: 1.55;
+  font-style: italic;
+}
+
+.batch-line {
+  padding: 0.35rem 0;
+  border-bottom: 1px solid #354a40;
+  font-size: 0.9rem;
+}

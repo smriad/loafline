@@ -1,0 +1,45 @@
+services:
+  - type: web
+    name: loafline
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: DEMO_MODE
+        value: "false"
+      - key: MONGODB_DB
+        value: loafline
+      - key: OLLAMA_BASE_URL
+        sync: false
+      - key: OLLAMA_API_KEY
+        sync: false
+      - key: OLLAMA_CHAT_MODEL
+        value: google/gemma-3-4b-it
+      - key: TINKER_API_KEY
+        sync: false
+      - key: TINKER_BASE_URL
+        value: https://tinker.thinkingmachines.dev/services/tinker-prod/oai/api/v1
+      - key: TINKER_MODEL
+        value: thinkingmachines/Inkling
+      - key: PRIORLABS_API_KEY
+        sync: false
+      - key: MONGODB_URI
+        sync: false
+      - key: TIGER_DATABASE_URL
+        sync: false
+      - key: ELEVENLABS_API_KEY
+        sync: false
+      - key: ELEVENLABS_VOICE_ID
+        sync: false
+      - key: SENTRY_DSN
+        sync: false
+      - key: SERPAPI_API_KEY
+        sync: false
+      - key: BACKBOARD_API_KEY
+        sync: false
+      - key: BACKBOARD_ASSISTANT_ID
+        sync: false
